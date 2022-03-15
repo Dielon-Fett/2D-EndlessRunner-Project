@@ -1,1 +1,1 @@
-# 2D-Platformer-Project
+# 2D-EndlessRunner-Project
