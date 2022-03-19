@@ -11,22 +11,24 @@ public class PlayerMovement : MonoBehaviour
     public float maxHeight;
     public float minHeight;
 
-    public GameObject effect;
+    public int health = 4;
+
+   // public GameObject effect;
     void Update()
     {
 
         transform.position = Vector2.MoveTowards(transform.position, movePos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
+        if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < maxHeight)
         {
-            Instantiate(effect, transform.position, Quaternion.identity);
+            //Instantiate(effect, transform.position, Quaternion.identity);
             movePos = new Vector2(transform.position.x, transform.position.y + yValue);
             transform.position = movePos;
             
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
+        else if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > minHeight)
         {
-            Instantiate(effect, movePos, Quaternion.identity);
+           // Instantiate(effect, movePos, Quaternion.identity);
             movePos = new Vector2(transform.position.x, transform.position.y - yValue);
             transform.position = movePos;
            

@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class EnemyObstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int damage = 1;
+    public float speed = 1;
+
+    private void Update()
     {
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            speed += 1;
+        }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerMovement>().health -= damage;
+            Debug.Log(collision.GetComponent<PlayerMovement>().health);
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Respawn"))
+        { 
+            Destroy(gameObject);
+        }
         
     }
 }
