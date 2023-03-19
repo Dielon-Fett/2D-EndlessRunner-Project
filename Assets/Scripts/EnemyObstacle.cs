@@ -6,6 +6,13 @@ public class EnemyObstacle : MonoBehaviour
 {
     public int damage = 1;
     public float speed = 1;
+    private CameraShake  cameraShake;
+    public GameObject effect;
+
+    private void Start()
+    {
+        cameraShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
+    }
 
     private void Update()
     {
@@ -22,8 +29,10 @@ public class EnemyObstacle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            cameraShake.camShake();
+            Instantiate(effect, transform.position, Quaternion.identity);
             collision.GetComponent<PlayerMovement>().health -= damage;
-            Debug.Log(collision.GetComponent<PlayerMovement>().health);
+           // Debug.Log(collision.GetComponent<PlayerMovement>().health);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Respawn"))
