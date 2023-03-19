@@ -224,7 +224,7 @@ PolygonCollider2D:
     - - {x: 1.5826609, y: 1.3065233}
       - {x: -1.1564758, y: 1.1429353}
       - {x: -2.6298869, y: 1.9614346}
-      - {x: -3.8504212, y: -0.3330834}
+      - {x: -1.9137253, y: -0.05641249}
       - {x: -3.7041862, y: -2.554523}
       - {x: -0.2753628, y: -2.3417816}
       - {x: 1.6212137, y: -1.4457284}
@@ -611,10 +611,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca9b1e0b7686494db53b6d44f53d4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacal: {fileID: 4360223101782584091, guid: da8d986b83b583c49843b1f81b7b2a4b, type: 3}
-  startTime: 10
-  minusTime: 0.2
-  minTime: 6
+  obstacalPatterns:
+  - {fileID: 3474002688119464959, guid: 470ed89374a421a4f8031868db93aab0, type: 3}
+  - {fileID: 6506445837344993685, guid: 1263233613d716e47bb47b82b40d2021, type: 3}
+  - {fileID: 5181621571302223943, guid: 217c9580a8d3e334d85d870e0740bbab, type: 3}
+  - {fileID: 1792209024601863857, guid: 3741eb156fa17764e91de4c908071a15, type: 3}
+  - {fileID: 8650035478033258434, guid: 239c3db1557c308418f27c40bce19c39, type: 3}
+  - {fileID: 5800520679658879376, guid: c0669e882d9ca9d409c825b5426e6b10, type: 3}
+  - {fileID: 80391386034756769, guid: bfdbece058bc1ed47855f3ee4cd93341, type: 3}
+  startTime: 4
+  minusTime: 0.05
+  minTime: 2.5
 --- !u!4 &1924431908
 Transform:
   m_ObjectHideFlags: 0

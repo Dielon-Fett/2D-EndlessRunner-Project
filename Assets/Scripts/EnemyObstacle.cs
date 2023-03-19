@@ -11,11 +11,12 @@ public class EnemyObstacle : MonoBehaviour
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            speed += 1;
-        }
         
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    speed += 1;
+        //}
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
