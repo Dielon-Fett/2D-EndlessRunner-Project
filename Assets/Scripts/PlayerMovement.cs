@@ -11,11 +11,18 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float maxHeight;
     public float minHeight;
-    public GameObject effect;
+    //public GameObject effect;
+    private CameraShake cameraShake;
 
     public int health = 4;
 
-   // public GameObject effect;
+    private void Start()
+    {
+        cameraShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
+    }
+
+
+  
     void Update()
     {
         if (health <= 0)
@@ -28,17 +35,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
         {
             //Instantiate(effect, transform.position, Quaternion.identity);
+            cameraShake.camShake();
+           // Instantiate(effect, transform.position, Quaternion.identity);
             movePos = new Vector2(transform.position.x, transform.position.y + yValue);
             transform.position = movePos;
-            Instantiate(effect, transform.position, Quaternion.identity);
+            
 
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
         {
-           // Instantiate(effect, movePos, Quaternion.identity);
+            // Instantiate(effect, movePos, Quaternion.identity);
+            cameraShake.camShake();
+           // Instantiate(effect, transform.position, Quaternion.identity);
             movePos = new Vector2(transform.position.x, transform.position.y - yValue);
             transform.position = movePos;
-            Instantiate(effect, transform.position, Quaternion.identity);
+           
 
         }
     }
