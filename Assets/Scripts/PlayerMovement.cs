@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,13 +12,18 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float maxHeight;
     public float minHeight;
+    public Text txtHealth;
+
+    public GameObject gameOver;
     //public GameObject effect;
     private CameraShake cameraShake;
+    public ScoreManager score;
 
     public int health = 4;
 
     private void Start()
     {
+        gameOver.SetActive(false);
         cameraShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
     }
 
@@ -25,9 +31,14 @@ public class PlayerMovement : MonoBehaviour
   
     void Update()
     {
+
+        txtHealth.text = health.ToString();
         if (health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameOver.SetActive(true);
+            Destroy(gameObject);
+            Destroy(score);
+            
         }
 
         transform.position = Vector2.MoveTowards(transform.position, movePos, speed * Time.deltaTime);
